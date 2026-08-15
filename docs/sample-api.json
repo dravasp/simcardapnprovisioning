@@ -1,0 +1,13 @@
+{
+  "endpoint": "/api/simcard/apn/provisioning/create",
+  "method": "POST",
+  "request": {
+    "simCardId": "SIM123456789",
+    "apnName": "jionet",
+    "username": "",
+    "password": "",
+    "authType": "None",
+    "deviceId": "AWS830-Unit-01",
+    "profileType": "default"
+  }
+}
