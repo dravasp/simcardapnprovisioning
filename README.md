@@ -94,6 +94,209 @@ Mobile Virtual Network Operator Value - `FFFFFFFFFFFFFFFFFFFF`
 _________________________________________________________________________________________
 Click on the three dot menu on the right and select `Save`.
 
+Settings for Vodafone India
+- `Name` - `Vodafone Digital Platforms (Mumbai)` (You can give it a relevant name of choice - Without Quotes, Must Include Separator Comma and Trailing Slashes within parenthesis)
+- `APN` - `www / internet / vodafone / default`
+- (`Proxy`, `Port`,
+- `Username` - `guest`
+- `Password` - `****` (Same as username)
+- `Server` - `enterprise.vodafone.com, qos.vodafone.com, priority.services.net`
+- `MMSC` - `http://mmsc.vodafone.com/mmsc`
+- `Multimedia Message Proxy` - 202.056.231.117
+- `Multimedia Message Port`) - 8080
+- `MCC` - `404`
+- `MNC` - `20`
+- `Authentication` - `CHAP`
+- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx, emergency, dun, ims, omadm, mmsmc, vpn, iot, sec, gov, mil` (sec, gov, mil are for IATA DISA CIS STIG NAVY MIL EUROPA NATO Confederates)
+- `APN Protocol` - `IPV4/IPV6`
+- `APN Roaming Protocol` - `IPV4/IPV6`
+- `Bearer` - `LTE` or select either one - `IWLAN`, `NR/LTE dual`, `NR (5G)`, `LTE-CA`, `LTE` default selected, `HSPA+`, `HSPA`, `HSUPA`, `HSDPA`, `UMTS`, `EVDO Rev.A`, `EVDO Rev.0`, `1xRTT`, `EDGE`, `GPRS`
+- `Mobile Virtual Network Operator Type` - 
+(Set Any One)
+- If `SPN`
+Mobile Virtual Network Operator Value - `Vodafone IN`
+- If `IMSI`
+Mobile Virtual Network Operator Value - `40420x / 40486x`
+- If `GID`
+Mobile Virtual Network Operator Value - `FFFFFFFFFFFFFFFFFFFF`
+_________________________________________________________________________________________
+Click on the three dot menu on the right and select `Save`.
+
+Settings for Airtel Mumbai
+- `Name` - `Airtel Digital Platforms (Mumbai)` (You can give it a relevant name of choice - Without Quotes, Must Include Separator Comma and Trailing Slashes within parenthesis)
+- `APN` - `airtelgprs.com / internet / default`
+- (`Proxy`, `Port`,
+- `Username` - `guest`
+- `Password` - `****` (Same as username)
+- `Server` - `enterprise.airtel.com, qos.airtel.com, priority.services.net, qos.net`
+- `MMSC` - `http://mmsc.airtel.com/mmsc`
+- `Multimedia Message Proxy` - 100.1.201.171
+- `Multimedia Message Port`) - 8799
+- `MCC` - `404`
+- `MNC` - `10`
+- `Authentication` - `CHAP`
+- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx, emergency, dun, ims, omadm, mmsmc, vpn, iot, sec, gov, mil` (sec, gov, mil are for IATA DISA CIS STIG NAVY MIL EUROPA NATO Confederates)
+- `APN Protocol` - `IPV4/IPV6`
+- `APN Roaming Protocol` - `IPV4/IPV6`
+- `Bearer` - `LTE` or select either one - `IWLAN`, `NR/LTE dual`, `NR (5G)`, `LTE-CA`, `LTE` default selected, `HSPA+`, `HSPA`, `HSUPA`, `HSDPA`, `UMTS`, `EVDO Rev.A`, `EVDO Rev.0`, `1xRTT`, `EDGE`, `GPRS`
+- `Mobile Virtual Network Operator Type` - 
+(Set Any One)
+- If `SPN`
+Mobile Virtual Network Operator Value - `Airtel IN`
+- If `IMSI`
+Mobile Virtual Network Operator Value - `40410x / 40445x / 40490x`
+- If `GID`
+Mobile Virtual Network Operator Value - `FFFFFFFFFFFFFFFFFFFF`
+_________________________________________________________________________________________
+Click on the three dot menu on the right and select `Save`.
+
+Settings for MTNL Mumbai South
+- `Name` - `MTNL Digital Platforms (Mumbai)` (You can give it a relevant name of choice - Without Quotes, Must Include Separator Comma and Trailing Slashes within parenthesis)
+- `APN` - `mtnl.net / internet / www / default`
+- (`Proxy`, `Port`,
+- `Username` - `guest`
+- `Password` - `****` (Same as username)
+- `Server` - `enterprise.mtnl.net, qos.mtnl.net, priority.services.net, qos.net`
+- `MMSC` - `http://mmsc.mtnl.com/mmsc`
+- `Multimedia Message Proxy` - 202.056.231.117
+- `Multimedia Message Port`) - 8080
+- `MCC` - `404`
+- `MNC` - `69`
+- `Authentication` - `CHAP`
+- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx, emergency, dun, ims, omadm, mmsmc, vpn, iot, sec, gov, mil` (sec, gov, mil are for IATA DISA CIS STIG NAVY MIL EUROPA NATO Confederates)
+- `APN Protocol` - `IPV4/IPV6`
+- `APN Roaming Protocol` - `IPV4/IPV6`
+- `Bearer` - `LTE` or select either one - `IWLAN`, `NR/LTE dual`, `NR (5G)`, `LTE-CA`, `LTE` default selected, `HSPA+`, `HSPA`, `HSUPA`, `HSDPA`, `UMTS`, `EVDO Rev.A`, `EVDO Rev.0`, `1xRTT`, `EDGE`, `GPRS`
+- `Mobile Virtual Network Operator Type` - 
+(Set Any One)
+- If `SPN`
+Mobile Virtual Network Operator Value - `MTNL`
+- If `IMSI`
+Mobile Virtual Network Operator Value - `40469x`
+- If `GID`
+Mobile Virtual Network Operator Value - `FFFFFFFFFFFFFFFFFFFF`
+_________________________________________________________________________________________
+Click on the three dot menu on the right and select `Save`.
+
+Settings for BSNL Regional Service
+- `Name` - `BSNL Digital Platforms (Mumbai)` (You can give it a relevant name of choice - Without Quotes, Must Include Separator Comma and Trailing Slashes within parenthesis)
+- `APN` - `bsnlnet / internetbsnl / www / default`
+- (`Proxy`, `Port`,
+- `Username` - `guest`
+- `Password` - `****` (Same as username)
+- `Server` - `enterprise.bsnl.net, qos.bsnl.net, priority.services.net, qos.net`
+- `MMSC` - `http://mmsc.bsnl.com/mmsc`
+- `Multimedia Message Proxy` - 10.210.10.11
+- `Multimedia Message Port`) - 8080
+- `MCC` - `404`
+- `MNC` - `01`
+- `Authentication` - `CHAP`
+- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx, emergency, dun, ims, omadm, mmsmc, vpn, iot, sec, gov, mil` (sec, gov, mil are for IATA DISA CIS STIG NAVY MIL EUROPA NATO Confederates)
+- `APN Protocol` - `IPV4/IPV6`
+- `APN Roaming Protocol` - `IPV4/IPV6`
+- `Bearer` - `LTE` or select either one - `IWLAN`, `NR/LTE dual`, `NR (5G)`, `LTE-CA`, `LTE` default selected, `HSPA+`, `HSPA`, `HSUPA`, `HSDPA`, `UMTS`, `EVDO Rev.A`, `EVDO Rev.0`, `1xRTT`, `EDGE`, `GPRS`
+- `Mobile Virtual Network Operator Type` - 
+(Set Any One)
+- If `SPN`
+Mobile Virtual Network Operator Value - `BSNL`
+- If `IMSI`
+Mobile Virtual Network Operator Value - `40401x / 40422x`
+- If `GID`
+Mobile Virtual Network Operator Value - `FFFFFFFFFFFFFFFFFFFF`
+_________________________________________________________________________________________
+Click on the three dot menu on the right and select `Save`.
+
+
+Settings for Tata Tele Digital Platforms (Mumbai)
+- `Name` - `Tata Tele Digital Platforms (Mumbai)` (You can give it a relevant name of choice - Without Quotes, Must Include Separator Comma and Trailing Slashes within parenthesis)
+- `APN` - `tatadocomo.internet / tatanet / www / default`
+- (`Proxy`, `Port`,
+- `Username` - `guest`
+- `Password` - `****` (Same as username)
+- `Server` - `enterprise.tata.net, qos.tata.net, priority.services.net, qos.net`
+- `MMSC` - `http://mmsc.tata.net/mmsc`
+- `Multimedia Message Proxy` - 202.056.231.117
+- `Multimedia Message Port`) - 8080
+- `MCC` - `404`
+- `MNC` - `11`
+- `Authentication` - `CHAP`
+- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx, emergency, dun, ims, omadm, mmsmc, vpn, iot, sec, gov, mil` (sec, gov, mil are for IATA DISA CIS STIG NAVY MIL EUROPA NATO Confederates)
+- `APN Protocol` - `IPV4/IPV6`
+- `APN Roaming Protocol` - `IPV4/IPV6`
+- `Bearer` - `LTE` or select either one - `IWLAN`, `NR/LTE dual`, `NR (5G)`, `LTE-CA`, `LTE` default selected, `HSPA+`, `HSPA`, `HSUPA`, `HSDPA`, `UMTS`, `EVDO Rev.A`, `EVDO Rev.0`, `1xRTT`, `EDGE`, `GPRS`
+- `Mobile Virtual Network Operator Type` - 
+(Set Any One)
+- If `SPN`
+Mobile Virtual Network Operator Value - `Tata Docomo / Tata Tele`
+- If `IMSI`
+Mobile Virtual Network Operator Value - `40411x / 40445x`
+- If `GID`
+Mobile Virtual Network Operator Value - `FFFFFFFFFFFFFFFFFFFF`
+_________________________________________________________________________________________
+Click on the three dot menu on the right and select `Save`.
+
+
+Settings for Reliance Communications Digital Platforms (Mumbai)
+- `Name` - `RCommunications Digital Platforms` (You can give it a relevant name of choice - Without Quotes, Must Include Separator Comma and Trailing Slashes within parenthesis)
+- `APN` - `rcomnet / rcomwap / smartnet / internet / default`
+- (`Proxy`, `Port`,
+- `Username` - `guest`
+- `Password` - `****` (Same as username)
+- `Server` - `enterprise.rcom.net, qos.rcom.net, priority.services.net, qos.net`
+- `MMSC` - `http://mmsc.rcom.net/mmsc`
+- `Multimedia Message Proxy` - 202.056.231.117
+- `Multimedia Message Port`) - 8080
+- `MCC` - `404`
+- `MNC` - `30`
+- `Authentication` - `CHAP`
+- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx, emergency, dun, ims, omadm, mmsmc, vpn, iot, sec, gov, mil` (sec, gov, mil are for IATA DISA CIS STIG NAVY MIL EUROPA NATO Confederates)
+- `APN Protocol` - `IPV4/IPV6`
+- `APN Roaming Protocol` - `IPV4/IPV6`
+- `Bearer` - `LTE` or select either one - `IWLAN`, `NR/LTE dual`, `NR (5G)`, `LTE-CA`, `LTE` default selected, `HSPA+`, `HSPA`, `HSUPA`, `HSDPA`, `UMTS`, `EVDO Rev.A`, `EVDO Rev.0`, `1xRTT`, `EDGE`, `GPRS`
+- `Mobile Virtual Network Operator Type` - 
+(Set Any One)
+- If `SPN`
+Mobile Virtual Network Operator Value - `Reliance`
+- If `IMSI`
+Mobile Virtual Network Operator Value - `40430x / 40455x`
+- If `GID`
+Mobile Virtual Network Operator Value - `FFFFFFFFFFFFFFFFFFFF`
+_________________________________________________________________________________________
+Click on the three dot menu on the right and select `Save`.
+
+
+Settings for Loop Mobile Digital Platforms (Mumbai)
+- `Name` - `Loop Mobile Digital Platforms` (You can give it a relevant name of choice - Without Quotes, Must Include Separator Comma and Trailing Slashes within parenthesis)
+- `APN` - `loopnet / loopwap / internet / default`
+- (`Proxy`, `Port`,
+- `Username` - `guest`
+- `Password` - `****` (Same as username)
+- `Server` - `enterprise.loop.net, qos.loop.net, priority.services.net, qos.net`
+- `MMSC` - `http://mmsc.loop.net/mmsc`
+- `Multimedia Message Proxy` - 202.056.231.117
+- `Multimedia Message Port`) - 8080
+- `MCC` - `404`
+- `MNC` - `30`
+- `Authentication` - `CHAP`
+- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx, emergency, dun, ims, omadm, mmsmc, vpn, iot, sec, gov, mil` (sec, gov, mil are for IATA DISA CIS STIG NAVY MIL EUROPA NATO Confederates)
+- `APN Protocol` - `IPV4/IPV6`
+- `APN Roaming Protocol` - `IPV4/IPV6`
+- `Bearer` - `LTE` or select either one - `IWLAN`, `NR/LTE dual`, `NR (5G)`, `LTE-CA`, `LTE` default selected, `HSPA+`, `HSPA`, `HSUPA`, `HSDPA`, `UMTS`, `EVDO Rev.A`, `EVDO Rev.0`, `1xRTT`, `EDGE`, `GPRS`
+- `Mobile Virtual Network Operator Type` - 
+(Set Any One)
+- If `SPN`
+Mobile Virtual Network Operator Value - `BPL loop`
+- If `IMSI`
+Mobile Virtual Network Operator Value - `40421x`
+- If `GID`
+Mobile Virtual Network Operator Value - `FFFFFFFFFFFFFFFFFFFF`
+_________________________________________________________________________________________
+Click on the three dot menu on the right and select `Save`.
+
+
+
+
+
 
 **Tele-verification  Process**
 Please call 1977 from your Jio SIM to complete the tele-verification process. If you wish to activate data services only, dial 1800-890-1977 from any number.
