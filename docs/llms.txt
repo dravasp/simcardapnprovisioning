@@ -1,0 +1,6 @@
+SimCardAPNProvisioning
+APN provisioning API
+Supports create, update, delete
+Profiles: default, supl, mms, dun
+Auth: None, PAP, CHAP
+Error codes: 400, 401, 404, 409, 500
