@@ -1,0 +1,22 @@
+{
+  "name": "SimCardAPNProvisioning",
+  "version": "1.0.0",
+  "description": "LLM configuration for APN provisioning APIs",
+  "endpoints": {
+    "create": {
+      "method": "POST",
+      "path": "/api/simcard/apn/provisioning/create",
+      "params": ["simCardId", "apnName", "username", "password", "authType", "deviceId", "profileType"]
+    },
+    "update": {
+      "method": "PUT",
+      "path": "/api/simcard/apn/provisioning/update",
+      "params": ["provisioningId", "apnName", "username", "password", "authType", "profileType"]
+    },
+    "delete": {
+      "method": "DELETE",
+      "path": "/api/simcard/apn/provisioning/delete",
+      "params": ["provisioningId"]
+    }
+  }
+}
