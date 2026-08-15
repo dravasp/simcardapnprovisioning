@@ -18,11 +18,15 @@ ________________________________________________________________________________
 Comparing fast, secure, scalable plans to Next-gen Business Entities revolutionizing India's Trade and Commerce at the forefront through Government-linked Subsidies, Research Panelists, Merchant Insurance and Banking Conglomerates as observed by recent industry report.
 
 **Business Plans (Wide-range of Value-added Services)** 
- - with billing in India's quickest Straight to Bank incentivized Monthly, Quarterly, Annually - https://enterprise.jio.com/Enterprise/myjio-ent/SMB/plans/?type=jbb
+ - with billing in India's quickest Straight to Bank incentivized Monthly, Quarterly, Annually
+- https://enterprise.jio.com/Enterprise/myjio-ent/SMB/plans/?type=jbb
+
 **Average Consumer** - Media OTT-backed with Live TV on Standalone 1G
 - https://www.jio.com/jiohome
+
 **True 5G network** - Enjoy lightning-fast, super smooth internet with ultra-low latency, perfect for streaming, gaming, & working from anywhere.
 - https://www.jio.com/selfcare/plans/mobility/prepaid-plans-home
+
 **Regional Service for e-SIM** Portfolio for Smartphones, Notebooks, Tablets, QoS QIS, Business Leased-lines and Extended Connectivity across WAN SD-WAN OpenNetwork
   
 Activate In-Flight Packs - Currently servicing
@@ -69,7 +73,7 @@ Settings for Reliance Jio
 - `Username` - `guest`
 - `Password` - `****` (Same as username)
 - `Server` - `enterprise.jio.com, qos.jio.com, priority.services.net, qos.net`
-- `MMSC` - http://mmsc.jio.com/mmsc
+- `MMSC` - `http://mmsc.jio.com/mmsc`
 - `Multimedia Message Proxy` - 202.88.155.201
 - `Multimedia Message Port`) - 8080
 - `MCC` - `405`
@@ -152,10 +156,17 @@ I am a True 5G user and have recharged with 2GB/Day Plan, do I need to recharge 
 - Domestic with Foreign Inward Remittance (Dynamic Currency Conversion, 1-click Checkout, Native UPI NPCI Rails)
 
 **Razorpay** Point of Sale, Domestic and International Payment Gateway - Scan QR, NFC, VISA Wave, Mastercard Secure, American Express, Rewards Managements, EMI and Bank Authorization
+
 **CCAvenue** Point of Sale - Mobile PoS, Domestic Payment Gateway with International Payments, Voucher Realizations, Bank Guarantees, IMPEX and Trade Assurance with strong focus on Insurance and Remittance
+
 **Pinelabs** Electronic Terminals - Print Merchandise realized globally
+
 **Paytm Merchant** Solutions - End-to-End Payment Processing - Revolutionized Scan and Pay - Direct to Bank Remittance and Mobile Payments - Offered by Paytm Payments locally and Internationally at select outlets.
+
 **ZOHO Payments**
+
 **Juspay** Orchestration Layer
+
 **Bank-specific** - India's leading banking channels via strong customer retention and compute-optimized infrastructure
+
 **Consultancy Services** Companies - Business Processing Offices (Remote and Off-site Shore to Shore Execution) - WNS Global, TATA Consultancy Services, Datamatics
