@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+ "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>PayloadContent</key>
+  <array>
+    <dict>
+      <key>PayloadType</key><string>com.apple.cellular</string>
+      <key>PayloadVersion</key><integer>1</integer>
+      <key>PayloadIdentifier</key><string>COM.EE.APNPROFILE.APPLE</string>
+      <key>PayloadUUID</key><string>550E8400-E29B-41D4-A716-446655440028</string>
+      <key>PayloadDisplayName</key><string>EE UK APN (Apple)</string>
+      <key>APNs</key>
+      <array>
+        <dict>
+          <key>Name</key><string>EE Digital Platforms (UK)</string>
+          <key>APN</key><string>everywhere</string>
+          <key>Username</key><string>eesecure</string>
+          <key>Password</key><string>eesecure</string>
+          <key>AuthenticationType</key><string>PAP or CHAP</string>
+          <key>Server</key><string>enterprise.ee.co.uk, qos.ee.co.uk, priority.services.net</string>
+          <key>MMSC</key><string>http://mmsc.ee.co.uk/mmsc</string>
+          <key>MMSProxy</key><string></string>
+          <key>MMSPort</key><string>8080</string>
+          <key>MCC</key><string>234</string>
+          <key>MNC</key><string>30</string>
+          <key>APNType</key><string>default,supl,xcap,net,ia,hipri,mms,wap,fota,cbs,mcx,emergency,dun,ims,omadm</string>
+          <key>APNProtocol</key><string>IPv4v6</string>
+          <key>APNRoamingProtocol</key><string>IPv4v6</string>
+          <key>Bearer</key><string>LTE,NR,LTE-CA,HSPA+</string>
+        </dict>
+      </array>
+    </dict>
+  </array>
+  <key>PayloadType</key><string>Configuration</string>
+  <key>PayloadVersion</key><integer>1</integer>
+  <key>PayloadIdentifier</key><string>COM.EE.APNCONFIG.APPLE</string>
+  <key>PayloadUUID</key><string>123E4567-E89B-12D3-A456-426614174028</string>
+  <key>PayloadDisplayName</key><string>EE UK APN Config</string>
+</dict>
+</plist>
