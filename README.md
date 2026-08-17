@@ -68,16 +68,94 @@ ________________________________________________________________________________
 - Access Point Names (APN Settings)
 
   
-Settings for **Reliance Jio** 
+**QoS (Quality of Service)** can help optimize user experience even when MTU cannot be manually adjusted on Android devices. 
+Instead of changing packet size, QoS works by prioritizing traffic types and managing bandwidth allocation, which reduces latency, jitter, and packet loss.
+
+**How QoS Helps**
+- Traffic prioritization: Ensures VoLTE calls, video streams, or payment transactions get higher priority over bulk downloads.
+- Latency reduction: By shaping traffic, QoS reduces delays that fragmented packets or large MTU values might cause.
+- Jitter control: Stabilizes packet delivery for real‑time apps (VoIP, trading platforms).
+- Bandwidth guarantees: Allocates minimum throughput for critical apps like POS or IoT telemetry.
+- Enhanced signalling: Keeps IMS, SUPL, and FOTA APNs active with priority routing, ensuring roaming stability.
+
+For real‑time auto‑remediation of IMS signalling (Diameter/SIP), roaming tunnels (GTP), and fraud detection (DPI), only a handful of companies deliver carrier‑grade platforms that can enforce policies and remediate threats on the fly.
+These vendors combine NFV orchestration, GPU acceleration, and AI‑driven DPI to instantly block, reroute, or patch traffic without waiting for manual intervention.
+
+**Companies Offering Auto‑Remediation**
+
+**Nokia NetGuard**
+- Real‑time signalling firewall for Diameter/SIP.
+- Auto‑remediates IMS fraud, roaming signalling storms, and malformed GTP tunnels.
+
+**Ericsson Security Manager**
+- Integrated with IMS core and EPC/5GC.
+- AI‑driven DPI detects anomalies and auto‑applies firewall rules.
+
+**Huawei CloudCore DPI**
+- Deep packet inspection with inline remediation.
+- Auto‑patches signalling vulnerabilities and blocks fraud attempts.
+
+**Thales Sentinel**
+- Focused on telecom fraud prevention.
+- Auto‑revokes compromised SIM/eSIM profiles and enforces policy updates.
+
+**Palo Alto Networks Prisma SD‑WAN**
+- Enterprise‑grade DPI with auto‑remediation for POS and IoT traffic.
+- Detects anomalies in roaming tunnels and applies corrective QoS instantly.
+
+Auto‑remediates fraud signatures, signalling anomalies, and DPI threats inline.
+
+Google deploys 
+**NFV (Network Function Virtualization)** and **QoS (Quality of Service)** primarily through its **Distributed Cloud Connected** and **GKE Enterprise platforms**, using Kubernetes operators and containerized network functions to deliver telecom‑grade performance. 
+This allows enterprises and service providers to run firewalls, DPI, signalling gateways, and QoS enforcement directly in **Google Cloud or at the edge**.
+
+**NFV Deployment in Google Cloud**
+**Google Distributed Cloud Connected**
+
+-- Provides a Network Function Operator with Kubernetes CRDs.
+-- Automates provisioning of additional network interfaces, VLANs, and low‑level system features.
+-- Supports multi‑network pods for containerized firewalls, IDS/IPS, and signalling workloads.
+
+GKE Enterprise – Network Function Optimizer
+-- Extends Kubernetes pods with multiple interfaces for data‑plane/control‑plane separation.
+-- Enables containerized NFV workloads (firewalls, proxies, DPI engines).
+-- Provides high‑performance data plane comparable to hardware acceleration.
+
+**QoS Deployment in Google Cloud**
+**NetApp Volumes QoS**
+- Allows administrators to set manual QoS throughput limits per volume.
+- Ensures predictable performance for latency‑sensitive workloads (databases, trading apps, POS).
+- Configurable via Google Cloud API, gCloud CLI, or Terraform.
+
+**QoS in NFV Context**
+- QoS policies applied at the pod or VPC level using Kubernetes CRDs.
+- Traffic shaping and prioritization for IMS signalling, roaming GTP tunnels, and IoT telemetry.
+
+Integration with Google Cloud Monitoring for latency/jitter metrics.
+
+**Risks & Trade‑Offs**
+**Governance** TRAI/DoT compliance must be maintained for telecom workloads hosted in Google Cloud.
+**Latency** Cloud NFV adds ~10–20 ms compared to on‑prem appliances.
+**Cost** QoS enforcement at scale can increase storage/network charges.
+**Complexity** Requires Kubernetes expertise to manage multi‑network pods and CRDs.
+
+Recommendation
+ - Use GKE Enterprise Network Function Optimizer for NFV workloads (IMS signalling, DPI).
+ - Apply NetApp Volumes QoS for latency‑sensitive POS and trading workloads.
+ - Deploy hybrid model: Google Cloud NFV for scale + on‑prem QoS gateways for compliance.
+ - Monitor via Cloud Monitoring dashboards to ensure SLA adherence.
+
+
+## Settings for **Reliance Jio**
 - `Name` - `Jio Digital Platforms (Mumbai)` (You can give it a relevant name of choice - Without Quotes, Must Include Separator Comma and Trailing Slashes within parenthesis)
 - `APN` - `jionet / internet / default`
 - (`Proxy`, `Port`,
 - `Username` - `guest`
-- `Password` - `****` (Same as username)
+- `Password` -  (Same as username)
 - `Server` - `enterprise.jio.com, qos.jio.com, priority.services.net, qos.net`
 - `MMSC` - `http://mmsc.jio.com/mmsc`
-- `Multimedia Message Proxy` - 202.88.155.201
-- `Multimedia Message Port`) - 8080
+- `Multimedia Message Proxy` - `202.88.155.201`
+- `Multimedia Message Port`) - `8080`
 - `MCC` - `405`
 - `MNC` - `874`
 - `Authentication` - `CHAP`
@@ -93,208 +171,676 @@ Mobile Virtual Network Operator Value - `Jio`
 Mobile Virtual Network Operator Value - `405874x`
 - If `GID`
 Mobile Virtual Network Operator Value - `FFFFFFFFFFFFFFFFFFFF`
-_________________________________________________________________________________________
+_
 Click on the three dot menu on the right and select **`Save`.**
 
-Settings for **Vodafone India**
-- `Name` - `Vodafone Digital Platforms (Mumbai)` (You can give it a relevant name of choice - Without Quotes, Must Include Separator Comma and Trailing Slashes within parenthesis)
-- `APN` - `www / internet / vodafone / default`
+---
+
+## Settings for **AT&T**
+- `Name` - `AT&T Digital Platforms (USA)`
+- `APN` - `phone`
 - (`Proxy`, `Port`,
 - `Username` - `guest`
-- `Password` - `****` (Same as username)
-- `Server` - `enterprise.vodafone.com, qos.vodafone.com, priority.services.net`
-- `MMSC` - `http://mmsc.vodafone.com/mmsc`
-- `Multimedia Message Proxy` - 202.056.231.117
-- `Multimedia Message Port`) - 8080
+- `Password` -  (Same as username)
+- `Server` - `enterprise.att.net, qos.att.net, priority.services.net, qos.net`
+- `MMSC` - `http://mmsc.mobile.att.net`
+- `Multimedia Message Proxy` - `Not set`
+- `Multimedia Message Port`) - `80`
+- `MCC` - `310`
+- `MNC` - `410`
+- `Authentication` - `CHAP`
+- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx`
+- `APN Protocol` - `IPV4/IPV6`
+- `APN Roaming Protocol` - `IPV4/IPV6`
+- `Bearer` - `LTE, NR`
+- If `SPN`  
+Mobile Virtual Network Operator Value - `AT&T`  
+- If `IMSI`  
+Mobile Virtual Network Operator Value - `310410x`  
+- `Mobile Virtual Network Operator Type` - `GID`
+- `Mobile Virtual Network Operator Value` - `FFFFFFFFFFFFFFFF`
+_
+Click on the three dot menu on the right and select **`Save`.**
+
+---
+
+## Settings for **AeroMobile**
+- `Name` - `AeroMobile (In-Flight GSM/Connectivity)`
+- `APN` - `aeromobile`
+- (`Proxy`, `Port`,
+- `Username` - `guest`
+- `Password` -  (Same as username)
+- `Server` - `enterprise.aeromobile.net, qos.aeromobile.net, qos.net`
+- `MMSC` - `http://mmsc.aeromobile.net/mmsc`
+- `Multimedia Message Proxy` - `Not set`
+- `Multimedia Message Port`) - `8080`
+- `MCC` - `901`
+- `MNC` - `14`
+- `Authentication` - `CHAP`
+- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx`
+- `APN Protocol` - `IPV4/IPV6`
+- `APN Roaming Protocol` - `IPV4/IPV6`
+- `Bearer` - `LTE, NR`
+- If `SPN`  
+Mobile Virtual Network Operator Value - `AeroMobile`  
+- If `IMSI`  
+Mobile Virtual Network Operator Value - `90114x`  
+- `Mobile Virtual Network Operator Type` - `GID`
+- `Mobile Virtual Network Operator Value` - `FFFFFFFFFFFFFFFF`
+_
+Click on the three dot menu on the right and select **`Save`.**
+
+---
+
+## Settings for **Airtel**
+- `Name` - `Airtel Digital Platforms (Mumbai)`
+- `APN` - `airtelgprs.com`
+- (`Proxy`, `Port`,
+- `Username` - `guest`
+- `Password` -  (Same as username)
+- `Server` - `enterprise.airtel.com, qos.airtel.com, priority.services.net`
+- `MMSC` - `http://mmsc.airtelworld.com`
+- `Multimedia Message Proxy` - `100.1.201.171`
+- `Multimedia Message Port`) - `8799`
 - `MCC` - `404`
 - `MNC` - `20`
 - `Authentication` - `CHAP`
-- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx, emergency, dun, ims, omadm, mmsmc, vpn, iot, sec, gov, mil` (sec, gov, mil are for IATA DISA CIS STIG NAVY MIL EUROPA NATO Confederates)
+- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx`
 - `APN Protocol` - `IPV4/IPV6`
 - `APN Roaming Protocol` - `IPV4/IPV6`
-- `Bearer` - `LTE` or select either one - `IWLAN`, `NR/LTE dual`, `NR (5G)`, `LTE-CA`, `LTE` default selected, `HSPA+`, `HSPA`, `HSUPA`, `HSDPA`, `UMTS`, `EVDO Rev.A`, `EVDO Rev.0`, `1xRTT`, `EDGE`, `GPRS`
-- `Mobile Virtual Network Operator Type` - 
-(Set Any One)
-- If `SPN`
-Mobile Virtual Network Operator Value - `Vodafone IN`
-- If `IMSI`
-Mobile Virtual Network Operator Value - `40420x / 40486x`
-- If `GID`
-Mobile Virtual Network Operator Value - `FFFFFFFFFFFFFFFFFFFF`
-_________________________________________________________________________________________
+- `Bearer` - `LTE, NR`
+- If `SPN`  
+Mobile Virtual Network Operator Value - `Airtel`  
+- If `IMSI`  
+Mobile Virtual Network Operator Value - `40420x`  
+- `Mobile Virtual Network Operator Type` - `GID`
+- `Mobile Virtual Network Operator Value` - `FFFFFFFFFFFFFFFF`
+_
 Click on the three dot menu on the right and select **`Save`.**
 
-Settings for **Airtel Mumbai**
-- `Name` - `Airtel Digital Platforms (Mumbai)` (You can give it a relevant name of choice - Without Quotes, Must Include Separator Comma and Trailing Slashes within parenthesis)
-- `APN` - `airtelgprs.com / internet / default`
+---
+
+## Settings for **BPL Mobile**
+- `Name` - `BPL Mobile Digital Platforms (Mumbai)`
+- `APN` - `bplnet`
 - (`Proxy`, `Port`,
 - `Username` - `guest`
-- `Password` - `****` (Same as username)
-- `Server` - `enterprise.airtel.com, qos.airtel.com, priority.services.net, qos.net`
-- `MMSC` - `http://mmsc.airtel.com/mmsc`
-- `Multimedia Message Proxy` - 100.1.201.171
-- `Multimedia Message Port`) - 8799
+- `Password` -  (Same as username)
+- `Server` - `enterprise.bplmobile.net, qos.bplmobile.net, qos.net`
+- `MMSC` - `Not Set`
+- `Multimedia Message Proxy` - `202.056.231.118`
+- `Multimedia Message Port`) - `8080`
 - `MCC` - `404`
+- `MNC` - `20`
+- `Authentication` - `CHAP`
+- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx`
+- `APN Protocol` - `IPV4/IPV6`
+- `APN Roaming Protocol` - `IPV4/IPV6`
+- `Bearer` - `LTE, NR`
+- If `SPN`  
+Mobile Virtual Network Operator Value - `BPL Mobile`  
+- If `IMSI`  
+Mobile Virtual Network Operator Value - `40421x`  
+- `Mobile Virtual Network Operator Type` - `GID`
+- `Mobile Virtual Network Operator Value` - `FFFFFFFFFFFFFFFF`
+_
+Click on the three dot menu on the right and select **`Save`.**
+
+---
+
+## Settings for **BSNL**
+- `Name` - `BSNL Digital Platforms (Mumbai)`
+- `APN` - `bsnl.net`
+- (`Proxy`, `Port`,
+- `Username` - `guest`
+- `Password` -  (Same as username)
+- `Server` - `enterprise.bsnl.net, qos.bsnl.net, priority.services.net`
+- `MMSC` - `http://bsnlmmsc.in`
+- `Multimedia Message Proxy` - `10.210.10.11`
+- `Multimedia Message Port`) - `8080`
+- `MCC` - `404`
+- `MNC` - `20`
+- `Authentication` - `CHAP`
+- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx`
+- `APN Protocol` - `IPV4/IPV6`
+- `APN Roaming Protocol` - `IPV4/IPV6`
+- `Bearer` - `LTE, NR`
+- If `SPN`  
+Mobile Virtual Network Operator Value - `BSNL`  
+- If `IMSI`  
+Mobile Virtual Network Operator Value - `40401x`  
+- `Mobile Virtual Network Operator Type` - `GID`
+- `Mobile Virtual Network Operator Value` - `FFFFFFFFFFFFFFFF`
+_
+Click on the three dot menu on the right and select **`Save`.**
+
+---
+
+
+---
+
+## Settings for **Vodafone**
+- `Name` - `Vodafone Digital Platforms (Mumbai)`
+- `APN` - `vodafone`
+- (`Proxy`, `Port`,
+- `Username` - `guest`
+- `Password` -  (Same as username)
+- `Server` - `enterprise.vodafone.com, qos.vodafone.com, priority.services.net`
+- `MMSC` - `http://mmsc.vodafone.in`
+- `Multimedia Message Proxy` - `202.056.231.117`
+- `Multimedia Message Port`) - `8080`
+- `MCC` - `404`
+- `MNC` - `20`
+- `Authentication` - `CHAP`
+- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx`
+- `APN Protocol` - `IPV4/IPV6`
+- `APN Roaming Protocol` - `IPV4/IPV6`
+- `Bearer` - `LTE, NR`
+- If `SPN`  
+Mobile Virtual Network Operator Value - `Vodafone Idea`  
+- If `IMSI`  
+Mobile Virtual Network Operator Value - `40420x`  
+- `Mobile Virtual Network Operator Type` - `IMSI`
+- `Mobile Virtual Network Operator Value` - `40420x`
+_
+Click on the three dot menu on the right and select **`Save`.**
+
+---
+
+## Settings for **MTNL**
+- `Name` - `MTNL Digital Platforms (Mumbai)`
+- `APN` - `mtnl.net`
+- (`Proxy`, `Port`,
+- `Username` - `guest`
+- `Password` -  (Same as username)
+- `Server` - `enterprise.mtnl.net, qos.mtnl.net, priority.services.net`
+- `MMSC` - `http://mmsc.mtnl.net`
+- `Multimedia Message Proxy` - `202.056.231.117`
+- `Multimedia Message Port`) - `Not set`
+- `MCC` - `404`
+- `MNC` - `51`
+- `Authentication` - `CHAP`
+- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx`
+- `APN Protocol` - `IPV4/IPV6`
+- `APN Roaming Protocol` - `IPV4/IPV6`
+- `Bearer` - `LTE, NR`
+- If `SPN`  
+Mobile Virtual Network Operator Value - `MTNL`  
+- If `IMSI`  
+Mobile Virtual Network Operator Value - `40469x`  
+- `Mobile Virtual Network Operator Type` - `GID`
+- `Mobile Virtual Network Operator Value` - `FFFFFFFFFFFFFFFF`
+_
+Click on the three dot menu on the right and select **`Save`.**
+
+---
+
+## Settings for **Loop Mobile**
+- `Name` - `Loop Mobile Digital Platforms`
+- `APN` - `loopnet`
+- (`Proxy`, `Port`,
+- `Username` - `guest`
+- `Password` -  (Same as username)
+- `Server` - `enterprise.loop.net, qos.loop.net, priority.services.net`
+- `MMSC` - `Not Set`
+- `Multimedia Message Proxy` - `202.056.231.117`
+- `Multimedia Message Port`) - `8080`
+- `MCC` - `404`
+- `MNC` - `20`
+- `Authentication` - `CHAP`
+- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx`
+- `APN Protocol` - `IPV4/IPV6`
+- `APN Roaming Protocol` - `IPV4/IPV6`
+- `Bearer` - `LTE, NR`
+- If `SPN`  
+Mobile Virtual Network Operator Value - `Loop Mobile`  
+- If `IMSI`  
+Mobile Virtual Network Operator Value - `40411x`  
+- `Mobile Virtual Network Operator Type` - `GID`
+- `Mobile Virtual Network Operator Value` - `FFFFFFFFFFFFFFFF`
+_
+Click on the three dot menu on the right and select **`Save`.**
+
+## Settings for **RCom**
+- `Name` - `RCommunications Digital Platforms`
+- `APN` - `rcomnet`
+- (`Proxy`, `Port`,
+- `Username` - `guest`
+- `Password` -  (Same as username)
+- `Server` - `enterprise.rcom.net, qos.rcom.net, priority.services.net`
+- `MMSC` - `http://mmsc.rcom.net/mmsc`
+- `Multimedia Message Proxy` - `202.056.231.117`
+- `Multimedia Message Port`) - `8080`
+- `MCC` - `404`
+- `MNC` - `20`
+- `Authentication` - `CHAP`
+- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx`
+- `APN Protocol` - `IPV4/IPV6`
+- `APN Roaming Protocol` - `IPV4/IPV6`
+- `Bearer` - `LTE, NR`
+- If `SPN`  
+Mobile Virtual Network Operator Value - `Reliance Communications (RCom)`  
+- If `IMSI`  
+Mobile Virtual Network Operator Value - `40430x`  
+- `Mobile Virtual Network Operator Type` - `GID`
+- `Mobile Virtual Network Operator Value` - `FFFFFFFFFFFFFFFF`
+_
+Click on the three dot menu on the right and select **`Save`.**
+
+---
+
+## Settings for **EE (UK)**
+- `Name` - `EE Digital Platforms (UK)`
+- `APN` - `everywhere`
+- (`Proxy`, `Port`,
+- `Username` - `eesecure`
+- `Password` -  (Same as username)
+- `Server` - `enterprise.ee.co.uk, qos.ee.co.uk, priority.services.net`
+- `MMSC` - `http://mmsc.ee.co.uk/mmsc`
+- `Multimedia Message Proxy` - `Not set`
+- `Multimedia Message Port`) - `8080`
+- `MCC` - `234`
+- `MNC` - `30`
+- `Authentication` - `PAP or CHAP`
+- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx`
+- `APN Protocol` - `IPV4/IPV6`
+- `APN Roaming Protocol` - `IPV4/IPV6`
+- `Bearer` - `LTE, NR`
+- If `SPN`  
+Mobile Virtual Network Operator Value - `EE UK`  
+- If `IMSI`  
+Mobile Virtual Network Operator Value - `23430x`  
+- `Mobile Virtual Network Operator Type` - `GID`
+- `Mobile Virtual Network Operator Value` - `FFFFFFFFFFFFFFFF`
+_
+Click on the three dot menu on the right and select **`Save`.**
+
+---
+
+## Settings for **O2 (UK)**
+- `Name` - `O2 Digital Platforms (UK)`
+- `APN` - `mobile.o2.co.uk`
+- (`Proxy`, `Port`,
+- `Username` - `o2web`
+- `Password` -  (Same as username)
+- `Server` - `enterprise.o2.net, qos.o2.net, priority.services.net, qos.net`
+- `MMSC` - `http://mmsc.mms.o2.co.uk:8002`
+- `Multimedia Message Proxy` - `193.113.200.195`
+- `Multimedia Message Port`) - `8080`
+- `MCC` - `234`
 - `MNC` - `10`
 - `Authentication` - `CHAP`
-- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx, emergency, dun, ims, omadm, mmsmc, vpn, iot, sec, gov, mil` (sec, gov, mil are for IATA DISA CIS STIG NAVY MIL EUROPA NATO Confederates)
+- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx`
 - `APN Protocol` - `IPV4/IPV6`
 - `APN Roaming Protocol` - `IPV4/IPV6`
-- `Bearer` - `LTE` or select either one - `IWLAN`, `NR/LTE dual`, `NR (5G)`, `LTE-CA`, `LTE` default selected, `HSPA+`, `HSPA`, `HSUPA`, `HSDPA`, `UMTS`, `EVDO Rev.A`, `EVDO Rev.0`, `1xRTT`, `EDGE`, `GPRS`
-- `Mobile Virtual Network Operator Type` - 
-(Set Any One)
-- If `SPN`
-Mobile Virtual Network Operator Value - `Airtel IN`
-- If `IMSI`
-Mobile Virtual Network Operator Value - `40410x / 40445x / 40490x`
-- If `GID`
-Mobile Virtual Network Operator Value - `FFFFFFFFFFFFFFFFFFFF`
-_________________________________________________________________________________________
+- `Bearer` - `LTE, NR`
+- If `SPN`  
+Mobile Virtual Network Operator Value - `O2 UK`  
+- If `IMSI`  
+Mobile Virtual Network Operator Value - `23410x`  
+- `Mobile Virtual Network Operator Type` - `GID`
+- `Mobile Virtual Network Operator Value` - `FFFFFFFFFFFFFFFF`
+_
 Click on the three dot menu on the right and select **`Save`.**
 
-Settings for **MTNL Mumbai South**
-- `Name` - `MTNL Digital Platforms (Mumbai)` (You can give it a relevant name of choice - Without Quotes, Must Include Separator Comma and Trailing Slashes within parenthesis)
-- `APN` - `mtnl.net / internet / www / default`
-- (`Proxy`, `Port`,
-- `Username` - `guest`
-- `Password` - `****` (Same as username)
-- `Server` - `enterprise.mtnl.net, qos.mtnl.net, priority.services.net, qos.net`
-- `MMSC` - `http://mmsc.mtnl.com/mmsc`
-- `Multimedia Message Proxy` - 202.056.231.117
-- `Multimedia Message Port`) - 8080
-- `MCC` - `404`
-- `MNC` - `69`
-- `Authentication` - `CHAP`
-- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx, emergency, dun, ims, omadm, mmsmc, vpn, iot, sec, gov, mil` (sec, gov, mil are for IATA DISA CIS STIG NAVY MIL EUROPA NATO Confederates)
-- `APN Protocol` - `IPV4/IPV6`
-- `APN Roaming Protocol` - `IPV4/IPV6`
-- `Bearer` - `LTE` or select either one - `IWLAN`, `NR/LTE dual`, `NR (5G)`, `LTE-CA`, `LTE` default selected, `HSPA+`, `HSPA`, `HSUPA`, `HSDPA`, `UMTS`, `EVDO Rev.A`, `EVDO Rev.0`, `1xRTT`, `EDGE`, `GPRS`
-- `Mobile Virtual Network Operator Type` - 
-(Set Any One)
-- If `SPN`
-Mobile Virtual Network Operator Value - `MTNL`
-- If `IMSI`
-Mobile Virtual Network Operator Value - `40469x`
-- If `GID`
-Mobile Virtual Network Operator Value - `FFFFFFFFFFFFFFFFFFFF`
-_________________________________________________________________________________________
-Click on the three dot menu on the right and select **`Save`.**
+---
 
-Settings for **BSNL Regional Service**
-- `Name` - `BSNL Digital Platforms (Mumbai)` (You can give it a relevant name of choice - Without Quotes, Must Include Separator Comma and Trailing Slashes within parenthesis)
-- `APN` - `bsnlnet / internetbsnl / www / default`
+---
+
+## Settings for **Orange**
+- `Name` - `Orange Digital Platforms (Global/India)`
+- `APN` - `orangeinternet`
 - (`Proxy`, `Port`,
 - `Username` - `guest`
-- `Password` - `****` (Same as username)
-- `Server` - `enterprise.bsnl.net, qos.bsnl.net, priority.services.net, qos.net`
-- `MMSC` - `http://mmsc.bsnl.com/mmsc`
-- `Multimedia Message Proxy` - 10.210.10.11
-- `Multimedia Message Port`) - 8080
-- `MCC` - `404`
+- `Password` -  (Same as username)
+- `Server` - `enterprise.orange.com, qos.orange.com, priority.services.net`
+- `MMSC` - `http://mmsc.orange.co.uk`
+- `Multimedia Message Proxy` - `Not set`
+- `Multimedia Message Port`) - `Not set`
+- `MCC` - `208`
 - `MNC` - `01`
 - `Authentication` - `CHAP`
-- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx, emergency, dun, ims, omadm, mmsmc, vpn, iot, sec, gov, mil` (sec, gov, mil are for IATA DISA CIS STIG NAVY MIL EUROPA NATO Confederates)
+- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx`
 - `APN Protocol` - `IPV4/IPV6`
 - `APN Roaming Protocol` - `IPV4/IPV6`
-- `Bearer` - `LTE` or select either one - `IWLAN`, `NR/LTE dual`, `NR (5G)`, `LTE-CA`, `LTE` default selected, `HSPA+`, `HSPA`, `HSUPA`, `HSDPA`, `UMTS`, `EVDO Rev.A`, `EVDO Rev.0`, `1xRTT`, `EDGE`, `GPRS`
-- `Mobile Virtual Network Operator Type` - 
-(Set Any One)
-- If `SPN`
-Mobile Virtual Network Operator Value - `BSNL`
-- If `IMSI`
-Mobile Virtual Network Operator Value - `40401x / 40422x`
-- If `GID`
-Mobile Virtual Network Operator Value - `FFFFFFFFFFFFFFFFFFFF`
-_________________________________________________________________________________________
+- `Bearer` - `LTE, NR`
+- If `SPN`  
+Mobile Virtual Network Operator Value - `Orange France`  
+- If `IMSI`  
+Mobile Virtual Network Operator Value - `20801x`  
+- `Mobile Virtual Network Operator Type` - `GID`
+- `Mobile Virtual Network Operator Value` - `FFFFFFFFFFFFFFFF`
+_
+Click on the three dot menu on the right and select **`Save`.**
+
+---
+
+## Settings for **Virgin Mobile**
+- `Name` - `Virgin Mobile Digital Platforms (UAE)`
+- `APN` - `virginmobile`
+- (`Proxy`, `Port`,
+- `Username` - `guest`
+- `Password` -  (Same as username)
+- `Server` - `enterprise.virginmobile.ae, qos.virginmobile.ae, qos.net`
+- `MMSC` - `http://mmsc.virginmobile.ae/mmsc`
+- `Multimedia Message Proxy` - `Not set`
+- `Multimedia Message Port`) - `Not set`
+- `MCC` - `424`
+- `MNC` - `03`
+- `Authentication` - `CHAP`
+- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx`
+- `APN Protocol` - `IPV4/IPV6`
+- `APN Roaming Protocol` - `IPV4/IPV6`
+- `Bearer` - `LTE, NR`
+- If `SPN`  
+Mobile Virtual Network Operator Value - `Virgin Mobile UAE`  
+- If `IMSI`  
+Mobile Virtual Network Operator Value - `42403x`  
+- `Mobile Virtual Network Operator Type` - `GID`
+- `Mobile Virtual Network Operator Value` - `FFFFFFFFFFFFFFFF`
+_
+Click on the three dot menu on the right and select **`Save`.**
+
+---
+
+## Settings for **du**
+- `Name` - `du Digital Platforms (UAE)`
+- `APN` - `duinternet`
+- (`Proxy`, `Port`,
+- `Username` - `guest`
+- `Password` -  (Same as username)
+- `Server` - `enterprise.du.ae, qos.du.ae, priority.services.net, qos.net`
+- `MMSC` - `http://mmsc.du.ae/mmsc`
+- `Multimedia Message Proxy` - `Not set`
+- `Multimedia Message Port`) - `Not set`
+- `MCC` - `424`
+- `MNC` - `03`
+- `Authentication` - `CHAP`
+- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx`
+- `APN Protocol` - `IPV4/IPV6`
+- `APN Roaming Protocol` - `IPV4/IPV6`
+- `Bearer` - `LTE, NR`
+- If `SPN`  
+Mobile Virtual Network Operator Value - `du UAE`  
+- If `IMSI`  
+Mobile Virtual Network Operator Value - `42403x`  
+- `Mobile Virtual Network Operator Type` - `GID`
+- `Mobile Virtual Network Operator Value` - `FFFFFFFFFFFFFFFF`
+_
 Click on the three dot menu on the right and select **`Save`.**
 
 
-Settings for **Tata Tele Digital Platforms (Mumbai)**
-- `Name` - `Tata Tele Digital Platforms (Mumbai)` (You can give it a relevant name of choice - Without Quotes, Must Include Separator Comma and Trailing Slashes within parenthesis)
-- `APN` - `tatadocomo.internet / tatanet / www / default`
+## Settings for **OnAir**
+- `Name` - `OnAir (SITA – In-Flight GSM/Connectivity)`
+- `APN` - `onair`
 - (`Proxy`, `Port`,
 - `Username` - `guest`
-- `Password` - `****` (Same as username)
-- `Server` - `enterprise.tata.net, qos.tata.net, priority.services.net, qos.net`
+- `Password` -  (Same as username)
+- `Server` - `enterprise.onair.aero, qos.onair.aero, priority.services.net`
+- `MMSC` - `http://mmsc.onair.aero/mmsc`
+- `Multimedia Message Proxy` - `Not set`
+- `Multimedia Message Port`) - `8080`
+- `MCC` - `901`
+- `MNC` - `15`
+- `Authentication` - `CHAP`
+- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx`
+- `APN Protocol` - `IPV4/IPV6`
+- `APN Roaming Protocol` - `IPV4/IPV6`
+- `Bearer` - `LTE, NR`
+- If `SPN`  
+Mobile Virtual Network Operator Value - `OnAir`  
+- If `IMSI`  
+Mobile Virtual Network Operator Value - `90115x`
+- `Mobile Virtual Network Operator Type` - `GID`
+- `Mobile Virtual Network Operator Value` - `FFFFFFFFFFFFFFFF`
+_
+Click on the three dot menu on the right and select **`Save`.**
+
+---
+
+## Settings for **Starlink**
+- `Name` - `Starlink (Global Satellite Broadband – SpaceX)`
+- `APN` - `starlink`
+- (`Proxy`, `Port`,
+- `Username` - `guest`
+- `Password` -  (Same as username)
+- `Server` - `enterprise.starlink.com, qos.starlink.com, priority.services.net`
+- `MMSC` - `http://mmsc.starlink.com/mmsc`
+- `Multimedia Message Proxy` - `Not set`
+- `Multimedia Message Port`) - `8080`
+- `MCC` - `901`
+- `MNC` - `08`
+- `Authentication` - `CHAP`
+- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx`
+- `APN Protocol` - `IPV4/IPV6`
+- `APN Roaming Protocol` - `IPV4/IPV6`
+- `Bearer` - `LTE, NR`
+- If `SPN`  
+Mobile Virtual Network Operator Value - `Starlink`  
+- If `IMSI`  
+Mobile Virtual Network Operator Value - `90108x`  
+- `Mobile Virtual Network Operator Type` - `GID`
+- `Mobile Virtual Network Operator Value` - `FFFFFFFFFFFFFFFF`
+_
+Click on the three dot menu on the right and select **`Save`.**
+
+---
+
+## Settings for **T-Mobile**
+- `Name` - `T-Mobile Digital Platforms (USA)`
+- `APN` - `fast.t-mobile.com`
+- (`Proxy`, `Port`,
+- `Username` - `guest`
+- `Password` -  (Same as username)
+- `Server` - `enterprise.tmobile.net, qos.tmobile.net, priority.services.net`
+- `MMSC` - `http://mms.msg.eng.t-mobile.com/mms/wapenc`
+- `Multimedia Message Proxy` - `Not set`
+- `Multimedia Message Port`) - `Not set`
+- `MCC` - `310`
+- `MNC` - `260`
+- `Authentication` - `CHAP`
+- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx`
+- `APN Protocol` - `IPV4/IPV6`
+- `APN Roaming Protocol` - `IPV4/IPV6`
+- `Bearer` - `LTE, NR`
+- If `SPN`  
+Mobile Virtual Network Operator Value - `T-Mobile USA`  
+- If `IMSI`  
+Mobile Virtual Network Operator Value - `310260x`  
+- `Mobile Virtual Network Operator Type` - `GID`
+- `Mobile Virtual Network Operator Value` - `FFFFFFFFFFFFFFFF`
+_
+Click on the three dot menu on the right and select **`Save`.**
+
+---
+
+## Settings for **Verizon**
+- `Name` - `Verizon Digital Platforms (USA)`
+- `APN` - `vzwinternet`
+- (`Proxy`, `Port`,
+- `Username` - `guest`
+- `Password` -  (Same as username)
+- `Server` - `enterprise.verizon.net, qos.verizon.net, priority.services.net`
+- `MMSC` - `http://mms.vtext.com/servlets/mms`
+- `Multimedia Message Proxy` - `Not set`
+- `Multimedia Message Port`) - `Not set`
+- `MCC` - `310`
+- `MNC` - `012`
+- `Authentication` - `CHAP`
+- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx`
+- `APN Protocol` - `IPV4/IPV6`
+- `APN Roaming Protocol` - `IPV4/IPV6`
+- `Bearer` - `LTE, NR`
+- If `SPN`  
+Mobile Virtual Network Operator Value - `Verizon USA`  
+- If `IMSI`  
+Mobile Virtual Network Operator Value - `310012x`  
+- `Mobile Virtual Network Operator Type` - `GID`
+- `Mobile Virtual Network Operator Value` - `FFFFFFFFFFFFFFFF`
+_
+Click on the three dot menu on the right and select **`Save`.**
+
+---
+
+
+---
+
+## Settings for **Tata Tele**
+- `Name` - `Tata Tele Digital Platforms (Mumbai)`
+- `APN` - `tatadocomo.internet`
+- (`Proxy`, `Port`,
+- `Username` - `guest`
+- `Password` -  (Same as username)
+- `Server` - `enterprise.tata.net, qos.tata.net, priority.services.net`
 - `MMSC` - `http://mmsc.tata.net/mmsc`
-- `Multimedia Message Proxy` - 202.056.231.117
-- `Multimedia Message Port`) - 8080
+- `Multimedia Message Proxy` - `202.056.231.117`
+- `Multimedia Message Port`) - `8080`
 - `MCC` - `404`
-- `MNC` - `11`
+- `MNC` - `20`
 - `Authentication` - `CHAP`
-- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx, emergency, dun, ims, omadm, mmsmc, vpn, iot, sec, gov, mil` (sec, gov, mil are for IATA DISA CIS STIG NAVY MIL EUROPA NATO Confederates)
+- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx`
 - `APN Protocol` - `IPV4/IPV6`
 - `APN Roaming Protocol` - `IPV4/IPV6`
-- `Bearer` - `LTE` or select either one - `IWLAN`, `NR/LTE dual`, `NR (5G)`, `LTE-CA`, `LTE` default selected, `HSPA+`, `HSPA`, `HSUPA`, `HSDPA`, `UMTS`, `EVDO Rev.A`, `EVDO Rev.0`, `1xRTT`, `EDGE`, `GPRS`
-- `Mobile Virtual Network Operator Type` - 
-(Set Any One)
-- If `SPN`
-Mobile Virtual Network Operator Value - `Tata Docomo / Tata Tele`
-- If `IMSI`
-Mobile Virtual Network Operator Value - `40411x / 40445x`
-- If `GID`
-Mobile Virtual Network Operator Value - `FFFFFFFFFFFFFFFFFFFF`
-_________________________________________________________________________________________
+- `Bearer` - `LTE, NR`
+- If `SPN`  
+Mobile Virtual Network Operator Value - `Tata Tele`  
+- If `IMSI`  
+Mobile Virtual Network Operator Value - `40425x`  
+- `Mobile Virtual Network Operator Type` - `GID`
+- `Mobile Virtual Network Operator Value` - `FFFFFFFFFFFFFFFF`
+_
 Click on the three dot menu on the right and select **`Save`.**
 
+---
 
-Settings for **Reliance Communications Digital Platforms (Mumbai)**
-- `Name` - `RCommunications Digital Platforms` (You can give it a relevant name of choice - Without Quotes, Must Include Separator Comma and Trailing Slashes within parenthesis)
-- `APN` - `rcomnet / rcomwap / smartnet / internet / default`
+---
+
+## Settings for **e& Etisalat**
+- `Name` - `e& Etisalat Digital Platforms (UAE)` (You can give it a relevant name of choice - Without Quotes, Must Include Separator Comma and Trailing Slashes within parenthesis)
+- `APN` - `etisalat`
 - (`Proxy`, `Port`,
 - `Username` - `guest`
-- `Password` - `****` (Same as username)
-- `Server` - `enterprise.rcom.net, qos.rcom.net, priority.services.net, qos.net`
-- `MMSC` - `http://mmsc.rcom.net/mmsc`
-- `Multimedia Message Proxy` - 202.056.231.117
-- `Multimedia Message Port`) - 8080
-- `MCC` - `404`
-- `MNC` - `30`
+- `Password` -  (Same as username)
+- `Server` - `enterprise.etisalat.ae, qos.etisalat.ae, priority.services.net`
+- `MMSC` - `http://mmsc1.etisalat.ae`
+- `Multimedia Message Proxy` - `Not set`
+- `Multimedia Message Port`) - `8080`
+- `MCC` - `424`
+- `MNC` - `02`
 - `Authentication` - `CHAP`
-- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx, emergency, dun, ims, omadm, mmsmc, vpn, iot, sec, gov, mil` (sec, gov, mil are for IATA DISA CIS STIG NAVY MIL EUROPA NATO Confederates)
+- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx`
 - `APN Protocol` - `IPV4/IPV6`
 - `APN Roaming Protocol` - `IPV4/IPV6`
-- `Bearer` - `LTE` or select either one - `IWLAN`, `NR/LTE dual`, `NR (5G)`, `LTE-CA`, `LTE` default selected, `HSPA+`, `HSPA`, `HSUPA`, `HSDPA`, `UMTS`, `EVDO Rev.A`, `EVDO Rev.0`, `1xRTT`, `EDGE`, `GPRS`
-- `Mobile Virtual Network Operator Type` - 
-(Set Any One)
-- If `SPN`
-Mobile Virtual Network Operator Value - `Reliance`
-- If `IMSI`
-Mobile Virtual Network Operator Value - `40430x / 40455x`
-- If `GID`
-Mobile Virtual Network Operator Value - `FFFFFFFFFFFFFFFFFFFF`
-_________________________________________________________________________________________
+- `Bearer` - `LTE, NR`
+- If `SPN`  
+Mobile Virtual Network Operator Value - `e& Etisalat UAE`  
+- If `IMSI`  
+Mobile Virtual Network Operator Value - `42402x`  
+- `Mobile Virtual Network Operator Type` - `GID`
+- `Mobile Virtual Network Operator Value` - `FFFFFFFFFFFFFFFF`
+_
 Click on the three dot menu on the right and select **`Save`.**
 
+---
 
-Settings for **Loop Mobile Digital Platforms (Mumbai)**
-- `Name` - `Loop Mobile Digital Platforms` (You can give it a relevant name of choice - Without Quotes, Must Include Separator Comma and Trailing Slashes within parenthesis)
-- `APN` - `loopnet / loopwap / internet / default`
+## Settings for **STC Zain Saudi Telecom**
+- `Name` - `زين المملكة العربية السعودية (STC Zain Saudi Telecom Company)`
+- `APN` - `stcnet`
 - (`Proxy`, `Port`,
 - `Username` - `guest`
-- `Password` - `****` (Same as username)
-- `Server` - `enterprise.loop.net, qos.loop.net, priority.services.net, qos.net`
-- `MMSC` - `http://mmsc.loop.net/mmsc`
-- `Multimedia Message Proxy` - 202.056.231.117
-- `Multimedia Message Port`) - 8080
-- `MCC` - `404`
-- `MNC` - `30`
+- `Password` -  (Same as username)
+- `Server` - `enterprise.stc.com.sa, qos.stc.com.sa, priority.services.net`
+- `MMSC` - `http://stc.com.sa/mmsc`
+- `Multimedia Message Proxy` - `Not set`
+- `Multimedia Message Port`) - `8080`
+- `MCC` - `420`
+- `MNC` - `01`
 - `Authentication` - `CHAP`
-- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx, emergency, dun, ims, omadm, mmsmc, vpn, iot, sec, gov, mil` (sec, gov, mil are for IATA DISA CIS STIG NAVY MIL EUROPA NATO Confederates)
+- `APN Type` - Enter `default, supl, xcap, net, ia, hipri, mms, wap, fota, cbs, mcx`
 - `APN Protocol` - `IPV4/IPV6`
 - `APN Roaming Protocol` - `IPV4/IPV6`
-- `Bearer` - `LTE` or select either one - `IWLAN`, `NR/LTE dual`, `NR (5G)`, `LTE-CA`, `LTE` default selected, `HSPA+`, `HSPA`, `HSUPA`, `HSDPA`, `UMTS`, `EVDO Rev.A`, `EVDO Rev.0`, `1xRTT`, `EDGE`, `GPRS`
-- `Mobile Virtual Network Operator Type` - 
-(Set Any One)
-- If `SPN`
-Mobile Virtual Network Operator Value - `BPL loop`
-- If `IMSI`
-Mobile Virtual Network Operator Value - `40421x`
-- If `GID`
-Mobile Virtual Network Operator Value - `FFFFFFFFFFFFFFFFFFFF`
-_________________________________________________________________________________________
+- `Bearer` - `LTE, NR`
+- If `SPN`  
+Mobile Virtual Network Operator Value - `STC Zain Saudi Telecom`  
+- If `IMSI`  
+Mobile Virtual Network Operator Value - `42001x`  
+- `Mobile Virtual Network Operator Type` - `GID`
+- `Mobile Virtual Network Operator Value` - `FFFFFFFFFFFFFFFF`
+_
 Click on the three dot menu on the right and select **`Save`.**
 
+---
+
+## Settings for **SOS Secure IoT/GovNet**
+- `Name` - `SOS Tether/DM/VPN/Secure IoT M2M SecretGovNetMilNet 90199 90194`
+- `APN` - `secure` or `enterprise.qos`
+- (`Proxy`, `Port`,
+- `Username` - `Not set`
+- `Password` -  (Same as username)
+- `Server` - `## Settings for **SOS Secure IoT/GovNet**
+- `Name` - `SOS Tether/DM/VPN/Secure IoT M2M SecretGovNetMilNet 90199 90194`
+- `APN` - `enterprise.qos`
+- (`Proxy`, `Port`,
+- `Username` - `Not set`
+- `Password` -  (Same as username)
+- `Server` - `priority.services.net, enhanced.services.net, qos.net` OR `sentinel.qos.thales.net, prisma.qos.paloalto.net, cloudqos.qos.huawei.net, dpi.qos.huawei.net, simqos.qos.thales.net, panorama.qos.paloalto.net`
+- `MMSC` - `http://mmsc.iot.net/mmsc`
+- `Multimedia Message Proxy` - `Not set`
+- `Multimedia Message Port`) - `8080`
+- `MCC` - `404`
+- `MNC` - `20`
+- `Authentication` - `PAP or CHAP`
+- `APN Type` - Enter `sos, tether, dm, vpn, secure, iot, m2m, secret, govnet, milnet`
+- `APN Protocol` - `IPV4/IPV6`
+- `APN Roaming Protocol` - `IPV4/IPV6`
+- `Bearer` - `LTE, NR`
+- `Mobile Virtual Network Operator Type` - `GID`
+- `Mobile Virtual Network Operator Value` - `FFFFFFFFFFFFFFFF`
+_
+Click on the three dot menu on the right and select **`Save`.
+
+
+
+# SMSC Configuration Blob (Mumbai Circle)
+
+---
+
+| **Operator** | **Circle** | **MCC/MNC** |
+| --- | --- | --- |
+| `Reliance Jio` | `Mumbai` | `404/874` |
+| `AT&T` | `Mumbai` | `310/410` |
+| `AeroMobile` | `Mumbai` | `901/14` |
+| `Airtel` | `Mumbai` | `404/10` |
+| `BPL Mobile` | `Mumbai` | `404/21` |
+| `BSNL` | `Mumbai` | `404/01` |
+| `Vodafone Idea` | `Mumbai` | `404/20` |
+| `MTNL` | `Mumbai` | `404/69` |
+| `Loop Mobile` | `Mumbai` | `404/11` |
+| `Reliance Communications (RCom)` | `Mumbai` | `404/30` |
+| `EE UK` | `Mumbai` | `234/30` |
+| `O2 UK` | `Mumbai` | `234/10` |
+| `Orange France` | `Mumbai` | `208/01` |
+| `Virgin Mobile UAE` | `Mumbai` | `424/03` |
+| `du UAE` | `Mumbai` | `424/03` |
+| `OnAir` | `Mumbai` | `901/15` |
+| `Starlink` | `Mumbai` | `901/08` |
+| `T-Mobile USA` | `Mumbai` | `310/260` |
+| `Verizon USA` | `Mumbai` | `310/012` |
+| `Tata Tele` | `Mumbai` | `404/25` |
+| `e& Etisalat UAE` | `Mumbai` | `424/02` |
+| `STC Zain Saudi Telecom` | `Mumbai` | `420/01` |
+
+---
+
+# Usage Notes
+- All entries are normalized to **Mumbai circle** for consistency.  
+- MCC/MNC values are the latest allocations per ITU/GSMA databases.  
+- Legacy operators (BPL, RCom, Loop) are retained for archival completeness.  
+- Satellite/in-flight operators (AeroMobile, OnAir, Starlink) use global MCC 901 allocations.  
+
+---
+
+---
 
 | **Circle Type** | **Circle (GST Code)** | **Jio** | **Vodafone Idea (Vi)** | **Airtel** | **MTNL** | **BSNL** | **Tata Tele** | **RCom** | **Loop Mobile** |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
