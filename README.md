@@ -5,7 +5,7 @@ Easy Guide to Implementing Quality Assurance and Service Standards across Access
 # 📥 Apple 1‑Click Download Mobile APN SIM Configuration
 
 Safari on iPhone/iPad recognizes `.mobileconfig` files automatically.  
-This allows **one‑tap installation** of APN profiles hosted in your GitHub repo.
+This allows **one‑tap installation** of APN profiles hosted at https://github.com/dravasp/simcardapnprovisioning inside Apple 1-click Download Mobile APN SIM Configuration folder
 
 ---
 
