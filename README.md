@@ -921,6 +921,30 @@ Ensure the SMSC matches the operator/circle for that SIM
 _________________________________________________________________________________________
 Click on the three dot menu on the right and select **`Save`.**
 
+Steps for Apple Devices (iPhone/iPad) and Android
+
+1. **Download Operator App**  
+   - Install the official carrier app (e.g., MyJio, Airtel Thanks, Vi, MyVerizon, AT&T, EE, Orange, Etisalat, STC).  
+
+2. **Locate EID**  
+   - Go to **Settings → General → About → EID**.  
+   - Copy the 32‑digit EID number.
+
+3. **Activate via App**  
+   - Open the operator app.  
+   - Navigate to **eSIM Activation / Mobile Services**.  
+   - Enter the EID when prompted.  
+   - Confirm activation.
+
+4. **Install Profile Automatically**  
+   - The app pushes the eSIM profile directly to the device.  
+
+5. **Restart & Verify**  
+   - Restart the device or toggle **Airplane Mode**.  
+   - Confirm data, voice, and SMS services are active.
+
+6. **Recharge with True5G Unlimited Voice/SMS/5GDATA**
+
 **Tele-verification  Process**
 Please call 1977 from your Jio SIM / 59059 from your Vi or airtel SIM / 1507 from your MTNL, BSNL, TATA DOCOMO, RCOM, LOOP, BPL-Orange SIM to complete the tele-verification process. If you wish to activate data services only, dial 1800-890-1977 from any number.
 You can tele-verify your number using any of the following options:
