@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+ "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>PayloadContent</key>
+  <array>
+    <dict>
+      <key>PayloadType</key><string>com.apple.cellular</string>
+      <key>PayloadVersion</key><integer>1</integer>
+      <key>PayloadIdentifier</key><string>COM.ONAIR.APNPROFILE.APPLE</string>
+      <key>PayloadUUID</key><string>550E8400-E29B-41D4-A716-446655440034</string>
+      <key>PayloadDisplayName</key><string>OnAir APN (Apple)</string>
+      <key>APNs</key>
+      <array>
+        <dict>
+          <key>Name</key><string>OnAir (SITA – In-Flight GSM/Connectivity)</string>
+          <key>APN</key><string>onair</string>
+          <key>Username</key><string>guest</string>
+          <key>Password</key><string>guest</string>
+          <key>AuthenticationType</key><string>CHAP</string>
+          <key>Server</key><string>enterprise.onair.aero, qos.onair.aero, priority.services.net</string>
+          <key>MMSC</key><string>http://mmsc.onair.aero/mmsc</string>
+          <key>MMSProxy</key><string></string>
+          <key>MMSPort</key><string>8080</string>
+          <key>MCC</key><string>901</string>
+          <key>MNC</key><string>15</string>
+          <key>APNType</key><string>default,supl,xcap,net,ia,hipri,mms,wap,fota,cbs,mcx,emergency,dun,ims,omadm</string>
+          <key>APNProtocol</key><string>IPv4v6</string>
+          <key>APNRoamingProtocol</key><string>IPv4v6</string>
+          <key>Bearer</key><string>LTE,NR,LTE-CA,HSPA+</string>
+        </dict>
+      </array>
+    </dict>
+  </array>
+  <key>PayloadType</key><string>Configuration</string>
+  <key>PayloadVersion</key><integer>1</integer>
+  <key>PayloadIdentifier</key><string>COM.ONAIR.APNCONFIG.APPLE</string>
+  <key>PayloadUUID</key><string>123E4567-E89B-12D3-A456-426614174034</string>
+  <key>PayloadDisplayName</key><string>OnAir APN Config</string>
+</dict>
+</plist>
