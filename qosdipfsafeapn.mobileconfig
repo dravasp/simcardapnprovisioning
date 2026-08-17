@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+ "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>PayloadContent</key>
+  <array>
+    <dict>
+      <key>PayloadType</key><string>com.apple.cellular</string>
+      <key>PayloadVersion</key><integer>1</integer>
+      <key>PayloadIdentifier</key><string>COM.SOS.APNPROFILE.APPLE</string>
+      <key>PayloadUUID</key><string>550E8400-E29B-41D4-A716-446655440042</string>
+      <key>PayloadDisplayName</key><string>SOS Secure IoT/GovNet APN (Apple)</string>
+      <key>APNs</key>
+      <array>
+        <dict>
+          <key>Name</key><string>SOS Tether/DM/VPN/Secure IoT M2M SecretGovNetMilNet 90199 90194</string>
+          <key>APN</key><string>secure</string>
+          <key>Username</key><string></string>
+          <key>Password</key><string></string>
+          <key>AuthenticationType</key><string>CHAP</string>
+          <key>Server</key>
+          <string>priority.services.net, enhanced.services.net, qos.net, sentinel.qos.thales.net, prisma.qos.paloalto.net, cloudqos.qos.huawei.net, dpi.qos.huawei.net, simqos.qos.thales.net, panorama.qos.paloalto.net</string>
+          <key>MMSC</key><string>http://mmsc.iot.net/mmsc</string>
+          <key>MMSProxy</key><string></string>
+          <key>MMSPort</key><string>8080</string>
+          <key>MCC</key><string>404</string>
+          <key>MNC</key><string>20</string>
+          <key>APNType</key><string>sos,tether,dm,vpn,secure,iot,m2m,secret,govnet,milnet</string>
+          <key>APNProtocol</key><string>IPv4v6</string>
+          <key>APNRoamingProtocol</key><string>IPv4v6</string>
+          <key>Bearer</key><string>LTE,NR,LTE-CA,HSPA+</string>
+        </dict>
+      </array>
+    </dict>
+  </array>
+  <key>PayloadType</key><string>Configuration</string>
+  <key>PayloadVersion</key><integer>1</integer>
+  <key>PayloadIdentifier</key><string>COM.SOS.APNCONFIG.APPLE</string>
+  <key>PayloadUUID</key><string>123E4567-E89B-12D3-A456-426614174042</string>
+  <key>PayloadDisplayName</key><string>SOS Secure IoT/GovNet APN Config</string>
+</dict>
+</plist>
