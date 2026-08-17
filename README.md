@@ -1,5 +1,32 @@
 Easy Guide to Implementing Quality Assurance and Service Standards across Access-Point (APN) via (Handset, Device, Point of Sale, IoT, M2M, Direct Host), Configuration for World's Leading Mobile, QoS IoT, FQDN SIM Connectivity Carriers to increase Trust Score in Mobile Payments - Rails configured by NPCI, UPI, BHIM, RuPay, VISA, AMEX, Mastercard
 
+## 🌍 Region-Wise Master List
+
+# 📥 Apple 1‑Click Download Mobile APN SIM Configuration
+
+Safari on iPhone/iPad recognizes `.mobileconfig` files automatically.  
+This allows **one‑tap installation** of APN profiles hosted in your GitHub repo.
+
+---
+
+## 🚀 Steps to Install APN Profile
+
+### 01 Open Link on Apple Device
+- On iPhone/iPad, open **Safari**.
+- Paste or tap the raw GitHub link to the `.mobileconfig` file.
+- Safari will prompt: **Profile Downloaded**.
+
+### 02 Install Profile
+- Go to **Settings → General → VPN & Device Management → Profiles**.
+- Tap the downloaded APN profile.
+- Review details (APN, Server, Authentication).
+- Tap **Install** → enter passcode if required.
+
+### 03 Restart & Verify
+- Restart the device or toggle **Airplane Mode**.
+- Test data connection, MMS, and tethering.
+- Confirm the APN applied correctly.
+---
 _________________________________________________________________________________________
 
 ## Telecommunications Security
@@ -774,12 +801,6 @@ Click on the three dot menu on the right and select **`Save`.**
 ## Settings for **SOS Secure IoT/GovNet**
 - `Name` - `SOS Tether/DM/VPN/Secure IoT M2M SecretGovNetMilNet 90199 90194`
 - `APN` - `secure` or `enterprise.qos`
-- (`Proxy`, `Port`,
-- `Username` - `Not set`
-- `Password` -  (Same as username)
-- `Server` - `## Settings for **SOS Secure IoT/GovNet**
-- `Name` - `SOS Tether/DM/VPN/Secure IoT M2M SecretGovNetMilNet 90199 90194`
-- `APN` - `enterprise.qos`
 - (`Proxy`, `Port`,
 - `Username` - `Not set`
 - `Password` -  (Same as username)
