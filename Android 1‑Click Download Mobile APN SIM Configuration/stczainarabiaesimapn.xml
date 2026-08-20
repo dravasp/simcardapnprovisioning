@@ -1,0 +1,45 @@
+<ESIMProfile xmlns="urn:gsma:esim:profile:1.0">
+  <ProfileMetadata>
+    <ProfileName>STC Digital Platforms (Saudi Arabia)</ProfileName>
+    <ProfileIdentifier>COM.STC.APNPROFILE.ANDROID</ProfileIdentifier>
+    <ProfileVersion>1</ProfileVersion>
+    <ProfileUUID>550E8400-E29B-41D4-A716-446655440040</ProfileUUID>
+    <ProfileDisplayName>STC Saudi Arabia APN (Android)</ProfileDisplayName>
+  </ProfileMetadata>
+
+  <APNConfiguration>
+    <APN>stc</APN>
+    <Username>guest</Username>
+    <Password>guest</Password>
+    <Server>enterprise.stc.com.sa,qos.stc.com.sa,priority.services.net</Server>
+    <MMSC>http://mmsc.stc.com.sa/mmsc</MMSC>
+    <MMSProxy></MMSProxy>
+    <MMSPort>8080</MMSPort>
+    <MCC>420</MCC>
+    <MNC>01</MNC>
+    <Authentication>CHAP</Authentication>
+    <APNType>default,supl,xcap,net,ia,hipri,mms,wap,fota,cbs,mcx,emergency,dun,ims,omadm</APNType>
+    <Protocol>IPV4V6</Protocol>
+    <RoamingProtocol>IPV4V6</RoamingProtocol>
+    <Bearer>LTE,NR,LTE-CA,HSPA+</Bearer>
+  </APNConfiguration>
+
+  <eSIMSettings>
+    <MaxProfiles>20</MaxProfiles>
+    <ActiveProfiles>5</ActiveProfiles>
+    <Compliance>GSMA-SGP.32-Full;GSMA-SGP.32-Enhanced;GSMA-SGP.32-GovSec;GSMA-SGP.32-CarrierGrade</Compliance>
+    <ProvisioningMode>Remote,Local,Hybrid</ProvisioningMode>
+    <TLSVersion>1.3</TLSVersion>
+    <PostQuantumReady>true</PostQuantumReady>
+    <PolicySwitching>true</PolicySwitching>
+    <DISA_STIG>true</DISA_STIG>
+    <NATO_IATA>true</NATO_IATA>
+    <GovNet>true</GovNet>
+    <SLAProfile>true</SLAProfile>
+    <MultiIMSI>true</MultiIMSI>
+    <RoamingAgreements>Enabled</RoamingAgreements>
+    <CarrierID>STCCluster01</CarrierID>
+    <IndiaCompliance>true</IndiaCompliance>
+    <UAECompliance>true</UAECompliance>
+  </eSIMSettings>
+</ESIMProfile>
