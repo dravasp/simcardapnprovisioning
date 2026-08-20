@@ -173,6 +173,31 @@ Recommendation
  - Monitor via Cloud Monitoring dashboards to ensure SLA adherence.
 
 
+# Key Differences: Apple .mobileconfig vs GSMA SGP.32 XML
+
+**Apple** .mobileconfig
+- Requires `<?xml version="1.0" encoding="UTF-8"?>` and a `plist DOCTYPE`.
+- Payloads are defined under `<dict>` with keys like `PayloadType, PayloadUUID, PayloadIdentifier, PayloadDisplayName`.
+- APN settings go inside APNs array with fields like `Name`, `APN`, `Username`, `Password`, `AuthenticationType`, `MMSC`, `MMSProxy`, `MMSPort`, `MCC`, `MNC`, `APNType`, `APNProtocol`, `APNRoamingProtocol`, `Bearer`.
+- `Compliance, lifecycle, and multi‑IMSI flags are not part of Apple schema`.
+
+**Android** GSMA SGP.32 XML - `GSMA-SGP.32-Full`; `GSMA-SGP.32-Enhanced`; `GSMA-SGP.32-GovSec`; `GSMA-SGP.32-CarrierGrade`
+- Uses `<ESIMProfile xmlns="urn:gsma:esim:profile:1.0">`.
+- Includes `<ProfileMetadata>, <APNConfiguration>, and <eSIMSettings>` blocks.
+- Supports advanced fields like `MaxProfiles, ActiveProfiles, Compliance, ProvisioningMode, ProfileLifecycle, TLSVersion, PostQuantumReady, DISA_STIG, NATO_IATA, GovNet, SLAProfile, MultiIMSI, RoamingAgreements, CarrierID`.
+
+Legacy Devices limit `MaxProfiles (1)` and `ActiveProfiles (1)`
+Next-gen Devices support `MaxProfiles (20)` and `ActiveProfiles (5)`
+
+| **[Model])** | **Chipset** | **Stored Profiles (Max)** | **Active Profiles (Max)** | **Notes** |
+| --- | --- | --- | --- | --- |
+| **[Google Pixel 11 Pro / XL]** | Google Tensor G6 | 20 | 5 | Smoothest Android eSIM setup, dual eSIM active, global carrier support. |
+| **[Samsung Galaxy Z Flip8]** | Exynos 2600 | 20 | 5 | Foldable flagship, supports multi‑carrier orchestration, premium build. |
+| **[Samsung Galaxy S25 Ultra]** | Snapdragon 8 Gen 4 | 20 | 5 | Carrier‑grade compliance, large AMOLED, S‑Pen integration. |
+| **[Honor X70 Pro Max]** | Snapdragon 6 Gen 4 | 20 | 5 | Dual SIM + eSIM, rugged IP68/IP69K, 8560 mAh battery. |
+| **[Motorola Edge 70 Fusion]** | Snapdragon 7s Gen 4 | 20 | 5 | Military‑grade certification, 7000 mAh battery, mid‑range pricing. |
+| **[Xiaomi 15 Ultra]** | Snapdragon 8 Gen 4 | 20 | 5 | High‑end performance, advanced camera, strong eSIM adoption. |
+
 ## Settings for **Reliance Jio**
 - `Name` - `Jio Digital Platforms (Mumbai)` (You can give it a relevant name of choice - Without Quotes, Must Include Separator Comma and Trailing Slashes within parenthesis)
 - `APN` - `jionet / internet / default`
@@ -202,6 +227,7 @@ _
 Click on the three dot menu on the right and select **`Save`.**
 
 ---
+
 
 ## Settings for **AT&T**
 - `Name` - `AT&T Digital Platforms (USA)`
